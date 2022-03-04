@@ -1,0 +1,35 @@
+Livro - Ravi
+Cliente - Ana Livia
+Produto- Vini Saraiva
+Filme - Vini Marques
+Funcionario - Pedro H
+Paciente - Stefany
+Vendedor - Williston
+Categoria - Matheus Fernandes
+Jogador - Victor Gabriel
+Pessoa - Kheren
+Veículo - Mateus Siqueira
+Games - Thiago São Pedro
+Cachorro - Vitor Kiyoshi
+Peixe - Thiago Moreira
+Animais - Vini Malaquias
+Serie - Pedro
+Carro - Lucas
+Empresa - Victor Junio
+
+Administrador
+Empresa
+Serie
+
+
+Rebeca
+
+Matheus Velini
+
+
+
+
+
+* Para cada classe criar 3 atributos no mínimo.
+* Construir as Funcionalidades Cadastrar, Listar e Excluir
+

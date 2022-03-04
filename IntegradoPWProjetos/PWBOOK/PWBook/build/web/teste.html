@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <title>Gerenciar Usuario</title>
+    </head>
+    <body>
+        <h1>Gerenciar Usuario</h1>        
+        <form action="${pageContext.request.contextPath}/SalvarUsuario" method="POST">
+            <label for="idUsuario">Id Usuario</label>
+            <input type="number" name="idUsuario" value="${usuario.idUsuario}">
+            <br /><br />
+            <label for="nomeUsuario">Nome Usuario</label>
+            <input type="text" name="nomeUsuario" value="${usuario.nomeUsuario}">
+            <br /><br />
+            <label for="dataNascimentoUsuario">Data Nascimento</label>
+            <input type="date" name="dataNascimentoUsuario" value="${usuario.dataNascimentoUsuario}">
+            <br /><br />
+            <label for="emailUsuario">E-mail</label>
+            <input type="email" name="emailUsuario" value="${usuario.emailUsuario}">
+            <br /><br />
+            <label for="senhaUsuario">Senha</label>
+            <input type="password" name="senhaUsuario" value="${usuario.senhaUsuario}">
+            <br /><br />
+            <label for="telefoneUsuario">Telefone</label>
+            <input type="text" name="telefoneUsuario" value="${usuario.telefoneUsuario}">
+            <br /><br />
+            <label for="generoUsuario">Gênero</label>
+            <input type="text" name="generoUsuario" maxlength="1" value="${usuario.generoUsuario}">
+            <br /><br />
+            <label for="caminhofotoUsuario">Foto</label>
+            <input type="file" name="caminhofotoUsuario" value="${usuario.caminhofotoUsuario}">
+            <br /><br />
+            <label for="sinteseUsuario">Sintese Usuario</label><br />
+            <textarea rows="10" cols="30" name="sinteseUsuario" value="${usuario.sinteseUsuario}"></textarea>
+            <br /><br />
+            <label for="caminhocapaUsuario">Capa</label>
+            <input type="file" name="caminhocapaUsuario" value="${usuario.caminhocapaUsuario}">
+            <br /><br />
+            <label for="tiposeguidorUsuario">Privacidade:</label>
+            Conteúdo Aberto<input type="radio" value="A" name="tiposeguidorUsuario" ${usuario.tiposeguidorUsuario == 'A'?'checked':''}>
+            Conteúdo Restrito<input type="radio" value="R" name="tiposeguidorUsuario" ${usuario.tiposeguidorUsuario == 'R'?'checked':''}>
+            <br /><br />             
+            <input type="submit" value="Salvar">            
+        </form>
+        ${mensagem}
+
+        <!--Listagem-->
+        <table border="1px">
+            <caption>Lista de Usuarios Cadastrados</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>nome</th>
+                    <th>data de nascimento</th>
+                    <th>e-mail</th>
+                    <th>senha</th>
+                    <th>telefone</th>
+                    <th>genero</th>
+                    <th>foto</th>
+                    <th>sintese</th>
+                    <th>capa</th>
+                    <th>tipo seguidor</th>  
+                    <th colspan="2">Editar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="usuario" items="${listadeusuarios}" >
+                    <tr>
+                        <td>${usuario.idUsuario}</td>
+                        <td>${usuario.nomeUsuario}</td>
+                        <td>${usuario.dataNascimentoUsuario}</td>
+                        <td>${usuario.emailUsuario}</td>
+                        <td>${usuario.senhaUsuario}</td>
+                        <td>${usuario.telefoneUsuario}</td>
+                        <td>${usuario.generoUsuario}</td>
+                        <td>${usuario.caminhofotoUsuario}</td>
+                        <td>${usuario.sinteseUsuario}</td>
+                        <td>${usuario.caminhocapaUsuario}</td>
+                        <td>${usuario.tiposeguidorUsuario}</td>
+                        <td><a href="${pageContext.request.contextPath}/ExcluirUsuario?idUsuario=${usuario.idUsuario}"> Excluir </a></td>
+                        <td><a href="${pageContext.request.contextPath}/CarregarUsuario?idUsuario=${usuario.idUsuario}"> Alterar </a></td>
+                    </tr>
+                </c:forEach>                
+            </tbody>
+        </table>
+
+       <div id="app-4">
+		  <ol>
+			<li v-for="todo in todos">
+			  {{ todo.text }}
+                          
+			</li>
+		  </ol>
+	</div>
+        <script>
+            var app4 = new Vue({
+			  el: '#app-4',
+			  data: {
+				todos: [
+				  { text: 'Aprender JavaScript' },
+				  { text: 'Aprender Vue' },
+				  { text: 'Criar algo incrível' }
+				]
+			  }
+			})
+
+        </script>
+    </body>
+</html>
