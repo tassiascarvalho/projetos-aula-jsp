@@ -1,0 +1,103 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.com.formulario.controller;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author Tassia
+ */
+@WebServlet(name = "CalcularIMC", urlPatterns = {"/CalcularIMC"})
+public class CalcularIMC extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        Double altura = Double.parseDouble(request.getParameter("altura"));
+        Double peso = Double.parseDouble(request.getParameter("peso"));
+        
+        Double imc = peso/(altura*altura);
+        String mensagem="";
+        
+        if(imc < 18.5){
+            mensagem ="Você esta abaixo do peso";
+        }else if(imc >=18.5 && imc <=24.9){
+            mensagem ="Peso normal";
+        }else if(imc >=25 && imc <=29.9){
+            mensagem ="Sobrepeso";
+        }else if(imc >=30 && imc <34.9){
+            mensagem ="Obesidade Grau 1";
+        }else if(imc >=35 && imc <39.9){
+            mensagem ="Obesidade Grau 2";
+        }else if(imc >=40){
+            mensagem ="Obesidade Grau 3";
+        }
+        
+        //Seta os atributos para o request como resposta
+        request.setAttribute("peso", peso);        
+        request.setAttribute("altura", altura);        
+        request.setAttribute("imc", imc);        
+        request.setAttribute("mensagem", mensagem);
+
+        request.getRequestDispatcher("calcularimc.jsp").forward(request, response);
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}
