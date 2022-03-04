@@ -1,0 +1,27 @@
+CREATE TABLE estado(
+
+id_estado serial primary key,
+sigla_estado char(2),
+nome_estado varchar(50)
+
+);
+
+CREATE TABLE cidade(
+
+id_cidade serial primary key,
+fk_estado int,
+nome_cidade varchar(50),
+
+constraint fk_estado foreign key (fk_estado) references estado
+
+);
+
+insert into estado(nome_estado,sigla_estado) values ('São Paulo','SP');
+insert into estado(nome_estado,sigla_estado) values ('Minas Gerais','MG');
+insert into estado(nome_estado,sigla_estado) values ('Mato Grosso do Sul','MS');
+
+insert into cidade (nome_cidade,fk_estado) values ('Santa Fé do Sul',1);
+insert into cidade (nome_cidade,fk_estado) values ('Belo Horizonte',2);
+insert into cidade (nome_cidade,fk_estado) values ('Aparecida do Taboado',3);
+
+ 
