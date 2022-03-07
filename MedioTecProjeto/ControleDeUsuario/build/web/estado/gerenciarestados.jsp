@@ -9,52 +9,10 @@
 <!DOCTYPE html>
 <html>
     <head>        
-        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-        
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <title>Gerenciar Estados</title>
-        <style>
-            table.blueTable {
-                border: 1px solid #1C6EA4;
-                background-color: #EEEEEE;
-                width: 100%;
-                text-align: left;
-                border-collapse: collapse;
-            }
-            table.blueTable td, table.blueTable th {
-                border: 1px solid #AAAAAA;
-                padding: 3px 2px;
-            }
-            table.blueTable tbody td {
-                font-size: 13px;
-            }
-            table.blueTable tr:nth-child(even) {
-                background: #D0E4F5;
-            }
-            table.blueTable thead {
-                background: #1C6EA4;
-                background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-                background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-                background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-                border-bottom: 2px solid #444444;
-            }
-            table.blueTable thead th {
-                font-size: 15px;
-                font-weight: bold;
-                color: #FFFFFF;
-                border-left: 2px solid #D0E4F5;
-            }
-            table.blueTable thead th:first-child {
-                border-left: none;
-            }
-
-            input{
-                border: 3px groove #FFA5A5;
-                outline:0;
-                height:25px;
-                width: 275px;
-            }
-
-        </style>
     </head>
 
     <body>
@@ -73,26 +31,32 @@
             <input type="submit" value="Salvar"/>
         </form>   
         ${mensagem}
-        <h1>Lista de Estados</h1>
-        <table class="blueTable">
-            <thead>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Sigla</th>
-            <th colspan="2">Editar</th>
-        </thead>
-        <tbody>
-            <c:forEach var="estado" items="${listaestados}" >
-                <!--Vai se repetir enquanto houver estados para serem mostrados-->
-                <tr>
-                    <td>${estado.idEstado}</td>
-                    <td>${estado.nomeEstado}</td>
-                    <td>${estado.siglaEstado}</td>
-                    <td><a href="ExcluirEstado?idestadoexcluir=${estado.idEstado}">Excluir</a></td>
-                    <td><a href="CarregarEstado?idestadocarregar=${estado.idEstado}">Alterar</a></td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
-</body>
+
+
+
+        <div class="container mt-3">
+            <h2>Lista de Estados</h2>
+
+            <div class="container-fluid d-flex flex-wrap">
+                <c:forEach var="estado" items="${listaestados}" >                  
+                    <div class="col-sm-3 px-2">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h1>${estado.nomeEstado}</h1>
+                            </div>
+                            <div class="card-body">
+                                <h2>${estado.idEstado}</h2>
+                                <h3>${estado.nomeEstado}</h3>
+                                <h3>${estado.siglaEstado}</h3>
+                            </div> 
+                            <div class="card-footer bg-dark text-white"> 
+                                <a class="btn btn-danger" href="ExcluirEstado?idestadoexcluir=${estado.idEstado}">Excluir</a>
+                                <a class="btn btn-primary" href="CarregarEstado?idestadocarregar=${estado.idEstado}">Alterar</a>
+                            </div>
+                        </div>
+                    </div>         
+                </c:forEach>
+            </div>
+        </div>
+    </body>
 </html>

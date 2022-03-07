@@ -10,19 +10,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <title>JSP Page</title>
-        <style>
-            body{
-                width: 50%;
-                margin-left: 25%;
-            }
-        </style>
+        
     </head>
     <body>
         <h1>Gerenciar Cidade</h1>
-        
+
         <form action="SalvarCidade" method="post">
             <label for="idcidade" class="form-label">Id Cidade</label>
             <input type="number" name="idcidade" class="form-control">
@@ -33,7 +26,7 @@
             <label class="form-label">Estado</label>
             <select name="idestado" class="form-control">
                 <c:forEach var="estado" items="${estados}">
-                     <option value="${estado.idEstado}">${estado.siglaEstado}</option>
+                    <option value="${estado.idEstado}">${estado.siglaEstado}</option>
                 </c:forEach>
             </select>
             <br /><br />
@@ -42,8 +35,8 @@
         <h3>${mensagem}</h3>
         <h1>Lista de Cidades</h1>
 
-        <table border="1" class="table table-dark table-hover">
-            
+        <table border="1">
+
             <thead>
             <th>ID Cidade</th>
             <th>Nome Cidade</th>
@@ -63,5 +56,6 @@
                 </tr>
             </c:forEach>
         </tbody>
-    </body>
+    </table>
+</body>
 </html>
