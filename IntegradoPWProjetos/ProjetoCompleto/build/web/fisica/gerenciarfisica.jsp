@@ -18,7 +18,7 @@
             <div class="col-sm-3"></div>
             <div class="col-sm-5">
                 <h1 class="text-danger">Cadastro de Pessoa Fisica</h1>
-                <form action="#" method="post">                    
+                <form action="${pageContext.request.contextPath}/SalvarFisica" method="post">                    
                     <label for="idpessoa"  class="form-label">Id Pessoa </label>
                     <input class="form-control" type="text" name="idpessoa"> <br />            
                     <label for="nomepessoa" class="form-label">Nome Pessoa</label>
@@ -32,6 +32,8 @@
             </div>
             <div class="col-sm-4"></div>
         </div>
+        
+        <h1>${mensagem}</h1>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>
