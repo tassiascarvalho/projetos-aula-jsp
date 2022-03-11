@@ -11,6 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <meta charset="UTF-8">
         <title>JSP Page</title>
 
     </head>
@@ -24,7 +25,7 @@
 
                         <form action="SalvarCidade" method="post">
                             <label for="idcidade" class="form-label">Id Cidade</label>
-                            <input type="number" name="idcidade" class="form-control">
+                            <input type="number" name="idcidade" class="form-control" readonly>
                             <br /><br />
                             <label class="form-label">Nome Cidade</label>
                             <input type="text" class="form-control" name="nomecidade">

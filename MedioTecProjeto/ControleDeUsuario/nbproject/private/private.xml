@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/MedioTecProjeto/ControleDeUsuario/src/java/br/com/controledeusuario/util/ConnectionFactory.java</file>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/MedioTecProjeto/ControleDeUsuario/src/java/br/com/controledeusuario/controller/SalvarCidade.java</file>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/MedioTecProjeto/ControleDeUsuario/src/java/br/com/controledeusuario/controller/SalvarEstado.java</file>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/MedioTecProjeto/ControleDeUsuario/web/estado/gerenciarestados.jsp</file>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/MedioTecProjeto/ControleDeUsuario/web/cidade/gerenciarcidade.jsp</file>
+        </group>
     </open-files>
 </project-private>
