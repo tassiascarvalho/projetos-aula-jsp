@@ -10,15 +10,15 @@
 <html>
     <head>        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link href="${pageContext.request.contextPath}/assets/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="${pageContext.request.contextPath}/assets/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
         <meta charset="UTF-8">
         <title>Gerenciar Estados</title>
     </head>
 
     <body>
         <div class="row">
-            <div class="col-sm-3 bg-primary text-white"><jsp:include page="../menu.jsp" /></div>          
+            <div class="col-sm-3 bg-dark text-white"><jsp:include page="../menu.jsp" /></div>          
             <div class="col-sm-9">
                 <div class="container">
                     <div class="row">                       
@@ -51,7 +51,7 @@
                             <c:forEach var="estado" items="${listaestados}" >                  
                                 <div class="col-sm-3 px-2">
                                     <div class="card">
-                                        <div class="card-header bg-primary text-white">
+                                        <div class="card-header bg-dark text-white">
                                             <h4>${estado.nomeEstado}</h4>
                                         </div>
                                         <div class="card-body">

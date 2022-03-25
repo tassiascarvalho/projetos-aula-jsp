@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +14,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head>
     <body>
-        
+
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-5">
@@ -32,8 +33,23 @@
             </div>
             <div class="col-sm-4"></div>
         </div>
-        
+
         <h1>${mensagem}</h1>
+
+
+        <c:forEach var="pessoafisica" items="${listafisica}">
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${pessoafisica.nomePessoa}</h5>
+                    <p class="card-text">${pessoafisica.apelidoFisica}</p>
+                    <a href="#" class="btn btn-primary"></a>
+                </div>
+            </div>
+        </c:forEach>
+
+
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>

@@ -35,6 +35,7 @@ public class Cliente extends Pessoa {
         this.situacao = situacao;
         this.permiteLogin = permiteLogin;
     }
+
     
 
     public Cliente() {

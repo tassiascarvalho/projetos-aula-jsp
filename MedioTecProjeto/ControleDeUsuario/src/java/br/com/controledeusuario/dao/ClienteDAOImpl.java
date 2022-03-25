@@ -15,55 +15,54 @@ import java.util.List;
  *
  * @author Tassia
  */
-public class ClienteDAOImpl implements GenericDAO{
-    
-    //Conexão com o BD
-    private Connection conn;
+public class ClienteDAOImpl implements GenericDAO {
 
+    Connection conn;
+
+    //construtor com a conexão
     public ClienteDAOImpl() throws Exception {
-        //Construtor da Classe;
         try {
-            this.conn = ConnectionFactory.conectar();
+            conn = ConnectionFactory.conectar();
             System.out.println("Conectado com Sucesso");
         } catch (Exception ex) {
             throw new Exception(ex.getMessage());
         }
     }
-    
+
     @Override
     public Boolean cadastrar(Object object) {
-        Cliente oCliente = (Cliente) object;
         PreparedStatement stmt = null;
+        Cliente oCliente = (Cliente) object;
 
         String sql = "INSERT INTO cliente "
-                + "(idpessoa, "
-                + "observacao, " //Preciso do atributo da classe pai
-                + "situacao, "
-                + "permitelogin)"
-                + "VALUES(?, ?, ?, ?);";       
+                + "(observacao, situacao, "
+                + "permitelogin, idpessoa) "
+                + "VALUES (?,?,?,?)";
+
         try {
             stmt = conn.prepareStatement(sql);
+            stmt.setString(1, oCliente.getObservacao());
+            stmt.setString(2, oCliente.getSituacao());
+            stmt.setString(3, oCliente.getPermiteLogin());
             try {
-                stmt.setInt(1, new PessoaDAOImpl().cadastrar(oCliente));
+                //Cadastra a pessoa e retorna o id para a filha
+                stmt.setInt(4, new PessoaDAOImpl().cadastrar(oCliente));
             } catch (Exception ex) {
-                System.out.println("Erro ao cadastrar Pessoa \n Erro: " 
-                        + ex.getMessage());
-                ex.printStackTrace();
+                System.out.println("Erro ao cadastrar Pessoa (cliente)");
             }
-            stmt.setString(2, oCliente.getObservacao());
-            stmt.setString(3, oCliente.getSituacao());
-            stmt.setString(4, oCliente.getPermiteLogin());
             stmt.execute();
             return true;
         } catch (Exception ex) {
-            System.out.println("Erro ao cadastrar ADM \n Erro: " + ex.getMessage());
+            System.out.println("Erro ao salvar Cliente(Pessoa) Erro: "
+                    + ex.getMessage());
             ex.printStackTrace();
             return false;
         } finally {
             try {
                 ConnectionFactory.fechar(conn, stmt, null);
             } catch (Exception ex) {
-                System.out.println("Erro ao fechar conexao \n Erro: " + ex.getMessage());
+                System.out.println("Erro ao fechar conexao Erro: "
+                        + ex.getMessage());
                 ex.printStackTrace();
             }
         }
@@ -88,5 +87,5 @@ public class ClienteDAOImpl implements GenericDAO{
     public Boolean alterar(Object object) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

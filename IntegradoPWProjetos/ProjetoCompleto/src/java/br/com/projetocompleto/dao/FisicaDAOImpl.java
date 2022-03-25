@@ -9,6 +9,9 @@ import br.com.projetocompleto.model.Fisica;
 import br.com.projetocompleto.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -73,7 +76,40 @@ public class FisicaDAOImpl implements GenericDAO {
 
     @Override
     public List<Object> listar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        List<Object> resultado = new ArrayList<>();
+        String sql= "SELECT * FROM PESSOA, FISICA " +
+                "WHERE PESSOA.IDPESSOA = FISICA.IDPESSOA ";
+        
+        try{
+            stmt = conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Fisica oFisica = new Fisica();
+                
+                oFisica.setIdPessoa(rs.getInt("idPessoa"));
+                oFisica.setNomePessoa(rs.getString("nomePessoa"));
+                oFisica.setEmailPessoa(rs.getString("emailPessoa"));
+                oFisica.setIdFisica(rs.getInt("idFisica"));
+                oFisica.setCpfFisica(rs.getString("cpfFisica"));
+                oFisica.setApelidoFisica(rs.getString("apelidoFisica"));
+                
+                resultado.add(oFisica);
+            }
+        }catch(SQLException ex){
+            System.out.println("Erro ao ListarFisica : " + ex.getMessage());
+            ex.printStackTrace();
+        }finally{
+            try{
+                ConnectionFactory.fechar(conn, stmt, rs);
+            }catch(Exception ex){
+                System.out.println("Erro ao fechar conexão : " + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }      
+        return resultado;
     }
 
     @Override

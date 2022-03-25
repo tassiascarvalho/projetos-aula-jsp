@@ -49,7 +49,7 @@ public class SalvarFisica extends HttpServlet {
                 mensagem = "Erro ao cadastrar pessoa Fisica";
             }
             request.setAttribute("mensagem", mensagem);
-            request.getRequestDispatcher("fisica/gerenciarfisica.jsp")
+            request.getRequestDispatcher("ListarFisica")
                     .forward(request, response);
         } catch (Exception ex) {
             System.out.println("Problemas ao salvar PessoaFisica!"

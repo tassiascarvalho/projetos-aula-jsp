@@ -35,10 +35,6 @@ public class Estado {
         this.nomeEstado = nomeEstado;
         this.siglaEstado = siglaEstado;
     }
-
-   
-    
-    
     
     //Botão Direito > Inserir Código >> Getters e Setters (Marca tudo)
 

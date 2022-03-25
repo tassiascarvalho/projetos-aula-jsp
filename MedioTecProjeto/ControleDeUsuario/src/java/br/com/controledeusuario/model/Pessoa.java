@@ -33,97 +33,62 @@ public class Pessoa {
         this.cidade = cidade;
     }
 
+    public Integer getIdPessoa() {
+        return idPessoa;
+    }
+
+    public void setIdPessoa(Integer idPessoa) {
+        this.idPessoa = idPessoa;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Date getDatanascimento() {
+        return datanascimento;
+    }
+
+    public void setDatanascimento(Date datanascimento) {
+        this.datanascimento = datanascimento;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public Cidade getCidade() {
         return cidade;
     }
 
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
-    }   
-
-    /**
-     * @return the idPessoa
-     */
-    public Integer getIdPessoa() {
-        return idPessoa;
-    }
-
-    /**
-     * @param idPessoa the idPessoa to set
-     */
-    public void setIdPessoa(Integer idPessoa) {
-        this.idPessoa = idPessoa;
-    }
-
-    /**
-     * @return the cpf
-     */
-    public String getCpf() {
-        return cpf;
-    }
-
-    /**
-     * @param cpf the cpf to set
-     */
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    /**
-     * @return the nome
-     */
-    public String getNome() {
-        return nome;
-    }
-
-    /**
-     * @param nome the nome to set
-     */
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    /**
-     * @return the datanascimento
-     */
-    public Date getDatanascimento() {
-        return datanascimento;
-    }
-
-    /**
-     * @param datanascimento the datanascimento to set
-     */
-    public void setDatanascimento(Date datanascimento) {
-        this.datanascimento = datanascimento;
-    }
-
-    /**
-     * @return the login
-     */
-    public String getLogin() {
-        return login;
-    }
-
-    /**
-     * @param login the login to set
-     */
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    /**
-     * @return the senha
-     */
-    public String getSenha() {
-        return senha;
-    }
-
-    /**
-     * @param senha the senha to set
-     */
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
     
     
+   
 }

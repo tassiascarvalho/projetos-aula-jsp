@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="row">
-            <div class="col-sm-3 bg-primary text-white"><jsp:include page="../menu.jsp" /></div>
+            <div class="col-sm-3 bg-dark text-white"><jsp:include page="../menu.jsp" /></div>
             <div class="col-sm-9">
                 <div class="row">                       
                     <div class="col-sm-6">
