@@ -114,7 +114,7 @@ and open the template in the editor.
                         </a>
                     </li>
                     <li>
-                        <a href="cliente/gerenciarcliente.jsp" class="nav-link text-white">
+                        <a href="ListarCliente" class="nav-link text-white">
                             <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
                             Gerenciar Cliente
                         </a>

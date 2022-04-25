@@ -18,6 +18,11 @@ public class Cidade {
     public Cidade() {
     }
 
+    public Cidade(Integer idCidade) {
+        this.idCidade = idCidade;
+    }
+
+    
     public Cidade(Integer idCidade, String nomeCidade, Estado estado) {
         this.idCidade = idCidade;
         this.nomeCidade = nomeCidade;

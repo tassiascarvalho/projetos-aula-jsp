@@ -36,17 +36,24 @@
 
         <h1>${mensagem}</h1>
 
-
-        <c:forEach var="pessoafisica" items="${listafisica}">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">${pessoafisica.nomePessoa}</h5>
-                    <p class="card-text">${pessoafisica.apelidoFisica}</p>
-                    <a href="#" class="btn btn-primary"></a>
+        <div class="container-fluid d-flex flex-wrap">
+            <c:forEach var="pessoafisica" items="${listafisica}">
+                <div class="col-sm-3 px-2">
+                    <div class="card" style="width: 18rem;">               
+                        <div class="card-body">
+                            <h5 class="card-title">${pessoafisica.nomePessoa}</h5>
+                            <p class="card-text">${pessoafisica.apelidoFisica}</p>
+                            <a href="#" class="btn btn-primary">Alterar</a>
+                            <a 
+                                href="${pageContext.request.contextPath}
+                                /ExcluirFisica?idpessoaexcluir=${pessoafisica.idPessoa}" 
+                                class="btn btn-danger">Excluir
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </c:forEach>
+            </c:forEach>
+        </div>
 
 
 

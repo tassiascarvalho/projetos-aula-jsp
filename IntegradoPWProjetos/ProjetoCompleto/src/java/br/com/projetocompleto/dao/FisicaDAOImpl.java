@@ -114,7 +114,31 @@ public class FisicaDAOImpl implements GenericDAO {
 
     @Override
     public void excluir(int idObject) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        PreparedStatement stmt = null;
+        
+        String sql = 
+                  "delete from fisica where idpessoa=?;"
+                + "COMMIT;"
+                + "delete from pessoa where idpessoa=?;";
+        
+        try{
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idObject);
+            stmt.setInt(2, idObject);
+            stmt.execute();
+        }catch(SQLException ex){
+            System.out.println("Erro ao ExcluirPEssoaFisica : " 
+                    + ex.getMessage());
+            ex.printStackTrace();
+        }finally{
+            try{
+                ConnectionFactory.fechar(conn, stmt, null);
+            }catch(Exception ex){
+                System.out.println("Erro ao fechar conexão : " 
+                        + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }      
     }
 
     @Override
