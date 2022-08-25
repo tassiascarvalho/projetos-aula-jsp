@@ -22,6 +22,12 @@ public class Produto {
     public Produto() {
     }
 
+    public Produto(Integer idProduto) {
+        this.idProduto = idProduto;
+    }
+
+    
+    
     public Produto(Integer idProduto, String nomeProduto, Double valorProduto, Date dataFabricacaoProduto, Juridica juridica) {
         this.idProduto = idProduto;
         this.nomeProduto = nomeProduto;

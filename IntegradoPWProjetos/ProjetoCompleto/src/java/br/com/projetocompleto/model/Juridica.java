@@ -21,18 +21,32 @@ public class Juridica extends Pessoa{
     public Juridica() {
     }
 
+    public Juridica(Integer idJuridica) {
+        this.idJuridica = idJuridica;
+    }
+
+    public Juridica(Integer idJuridica, String nomePessoa) {
+        super(nomePessoa);
+        this.idJuridica = idJuridica;
+    }
+
+    
+    
     public Juridica(Integer idJuridica, String cnpjJuridica, String representanteJuridica) {
         this.idJuridica = idJuridica;
         this.cnpjJuridica = cnpjJuridica;
         this.representanteJuridica = representanteJuridica;
     }
 
-    public Juridica(Integer idJuridica, String cnpjJuridica, String representanteJuridica, Integer idPessoa, String nomePessoa, String emailPessoa, String tassiaPessoa) {
-        super(idPessoa, nomePessoa, emailPessoa, tassiaPessoa);
+    public Juridica(Integer idJuridica, String cnpjJuridica, String representanteJuridica, Integer idPessoa, String nomePessoa, String emailPessoa, String tassiaPessoa, String senhaPessoa) {
+        super(idPessoa, nomePessoa, emailPessoa, tassiaPessoa, senhaPessoa);
         this.idJuridica = idJuridica;
         this.cnpjJuridica = cnpjJuridica;
         this.representanteJuridica = representanteJuridica;
     }
+
+   
+    
 
     public Integer getIdJuridica() {
         return idJuridica;

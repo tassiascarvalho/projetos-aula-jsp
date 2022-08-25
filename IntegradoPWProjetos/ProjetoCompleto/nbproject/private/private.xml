@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/IntegradoPWProjetos/ProjetoCompleto/src/java/br/com/projetocompleto/controller/SalvarItemCarrinho.java</file>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/IntegradoPWProjetos/ProjetoCompleto/src/java/br/com/projetocompleto/model/Produto.java</file>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/IntegradoPWProjetos/ProjetoCompleto/src/java/br/com/projetocompleto/dao/ItensSaidaDAOImpl.java</file>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/IntegradoPWProjetos/ProjetoCompleto/web/produto/gerenciarproduto.jsp</file>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/IntegradoPWProjetos/ProjetoCompleto/web/index.jsp</file>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/IntegradoPWProjetos/ProjetoCompleto/src/java/br/com/projetocompleto/util/sql.sql</file>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/IntegradoPWProjetos/ProjetoCompleto/src/java/br/com/projetocompleto/dao/PessoaDAOImpl.java</file>
+            <file>file:/C:/Users/Tassia/OneDrive%20-%20Etec%20Centro%20Paula%20Souza/Etec/Aulas/InfoNet/Modulo%20II/DS/Projetos/projetos-aula-jsp/IntegradoPWProjetos/ProjetoCompleto/web/produto/detalhesproduto.jsp</file>
+        </group>
     </open-files>
 </project-private>

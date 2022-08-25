@@ -71,4 +71,43 @@ public class PessoaDAOImpl {
         }
         return idPessoa;
     } 
+     public Boolean alterar(Object object) {
+        //Existe ao alterar para não repetirmos códigos
+        Pessoa oPessoa = (Pessoa) object;
+        PreparedStatement stmt = null;
+
+        String sql = "UPDATE pessoa SET "
+                + "nome = ?,"
+                + "cpf = ?,"
+                + "datanascimento = ?,"
+                + "login = ?,"
+                + "senha = ?, "
+                + "idcidade = ? "
+                + "WHERE idpessoa = ?";
+
+        try {
+            //Passagem dos parametros
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, oPessoa.getNome());
+            stmt.setString(2, oPessoa.getCpf());
+            stmt.setDate(3, new java.sql.Date(oPessoa.getDatanascimento().getTime()));
+            stmt.setString(4, oPessoa.getLogin());
+            stmt.setString(5, oPessoa.getSenha());            
+            stmt.setInt(6, oPessoa.getCidade().getIdCidade());
+            stmt.setInt(7, oPessoa.getIdPessoa());
+            stmt.executeUpdate();
+            return true;
+        } catch (Exception ex) {
+            System.out.println("Erro ao alterar Pessoa \n Erro: " + ex.getMessage());
+            ex.printStackTrace();
+            return false;
+        } finally {
+            try {
+                ConnectionFactory.fechar(conn, stmt, null);
+            } catch (Exception ex) {
+                System.out.println("Problemas ao fechar conexão \n Erro: " + ex.getMessage());
+                ex.printStackTrace();
+            }
+        }
+     }
 }

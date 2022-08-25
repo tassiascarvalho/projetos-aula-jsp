@@ -34,20 +34,18 @@ public class ConnectionFactory {
         }        
     }
     
-     //Fechar a conexão
-    public static void fechar(Connection conn, 
+    
+    //Fechar a conexão
+    public static void fechar(Connection conn,
             Statement stmt, ResultSet rs) throws Exception{
         try{
-            if(conn!=null){
-                conn.close(); //Fecha a conexao
-            }    
+            if(conn!=null) conn.close(); //Fecha a conexao
             
-            if(stmt!=null){
-                stmt.close(); //Fecha quem manipula SQL
-            }
-            if(rs!=null){
-                rs.close(); //Fecha os dados que estão no ResultSet(armazena dados do BD)
-            }
+            if(stmt!=null) stmt.close(); //Fecha quem manipula SQL
+            
+            if(rs!=null) rs.close();
+            //Fecha os dados que estão no ResultSet(armazena dados do BD)
+            
         }catch(Exception ex){
             throw new Exception(ex.getMessage());
         }

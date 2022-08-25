@@ -54,20 +54,29 @@ public class SalvarCliente extends HttpServlet {
 
         //Processamento (Salvar os dados no BD)
         String mensagem = "";
-        try {
+        
+        try{
             GenericDAO dao = new ClienteDAOImpl();
-            if (dao.cadastrar(oCliente)) {
+            if(request.getParameter("idpessoa").equals("")){
+                if (dao.cadastrar(oCliente)) {
                 mensagem = "Cliente cadastrado com Sucesso";
             } else {
                 mensagem = "Erro ao cadastrar Cliente";
             }
+            }else{
+                oCliente.setIdPessoa(Integer.parseInt(request.getParameter("idpessoa")));
+                if(dao.alterar(oCliente)){
+                    mensagem = "Cliente alterado com Sucesso!";
+                }else{
+                    mensagem = "Erro ao alterar Adm";
+                }
+            }         
         } catch (Exception ex) {
             System.out.println("Erro ao SalvarCliente Erro:" + ex.getMessage());
             ex.printStackTrace();
         }
         request.setAttribute("mensagem", mensagem);
-        request.getRequestDispatcher("ListarCliente")
-                .forward(request, response);
+        request.getRequestDispatcher("ListarCliente").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

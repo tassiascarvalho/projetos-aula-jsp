@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -113,14 +114,38 @@ and open the template in the editor.
                             Gerenciar Cidades
                         </a>
                     </li>
+
+
+                    <c:choose>
+                        <c:when test = "${sessionScope.tipopessoa != 'A'}">
+                            <li>
+                                <a href="ListarCliente" class="nav-link text-white">
+                                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                                    Gerenciar Cliente
+                                </a>
+                            </li>
+                        </c:when>
+                    </c:choose>
+
+
                     <li>
-                        <a href="ListarCliente" class="nav-link text-white">
+                        <a href="ListarFornecedor" class="nav-link text-white">
                             <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
-                            Gerenciar Cliente
+                            Gerenciar Fornecedor
                         </a>
                     </li>
-
-
+                    <li>
+                        <a href="ListarAdministrador" class="nav-link text-white">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                            Gerenciar Administrador
+                        </a>
+                    </li>
+                    <li>
+                        <a href="loginadm.jsp" class="nav-link text-white">
+                            <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                            Logar Administrador
+                        </a>
+                    </li>
                 </ul>
                 <hr>
                 <div class="dropdown">

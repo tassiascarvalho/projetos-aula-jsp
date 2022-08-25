@@ -38,15 +38,26 @@ public class SalvarFisica extends HttpServlet {
         //Recupera os atributos tanto de pessoa quanto de fisica.
         oFisica.setNomePessoa(request.getParameter("nomepessoa"));
         oFisica.setEmailPessoa(request.getParameter("emailpessoa"));
+        oFisica.setSenhaPessoa(request.getParameter("senhapessoa"));
         oFisica.setCpfFisica(request.getParameter("cpffisica"));
         oFisica.setApelidoFisica(request.getParameter("apelidofisica"));
         String mensagem = "";
         try {
             FisicaDAOImpl dao = new FisicaDAOImpl();
-            if (dao.cadastrar(oFisica)) {
-                mensagem = "Pessoa Fisica cadastrada com Sucesso";
-            } else {
-                mensagem = "Erro ao cadastrar pessoa Fisica";
+            
+            if(request.getParameter("idpessoa").equals("")){            
+                if (dao.cadastrar(oFisica)) {
+                    mensagem = "Pessoa Fisica cadastrada com Sucesso";
+                } else {
+                    mensagem = "Erro ao cadastrar pessoa Fisica";
+                }
+            }else{
+                oFisica.setIdPessoa(Integer.parseInt(request.getParameter("idpessoa")));
+                if(dao.alterar(oFisica)){
+                    mensagem = "Pessoa Fisica alterada com Sucesso";
+                }else{
+                    mensagem = "Erro ao alterar pessoa Fisica";
+                }                    
             }
             request.setAttribute("mensagem", mensagem);
             request.getRequestDispatcher("ListarFisica")

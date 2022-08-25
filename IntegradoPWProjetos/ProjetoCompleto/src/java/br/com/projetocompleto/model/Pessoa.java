@@ -14,19 +14,41 @@ public class Pessoa {
     private String nomePessoa;
     private String emailPessoa;
     private String tassiaPessoa;
+    private String senhaPessoa;
+    //Adicionar o campo senha pessoa, 
+    //Gerar o getter e setter
+    //construtor cheio novamente  
     
     //gerar construtores e encapsular campos
 
     public Pessoa() {
     }
 
-    public Pessoa(Integer idPessoa, String nomePessoa, String emailPessoa, String tassiaPessoa) {
+    public Pessoa(String nomePessoa) {
+        this.nomePessoa = nomePessoa;
+    }
+    
+    
+
+    public Pessoa(Integer idPessoa, String nomePessoa, String emailPessoa, String tassiaPessoa, String senhaPessoa) {
         this.idPessoa = idPessoa;
         this.nomePessoa = nomePessoa;
         this.emailPessoa = emailPessoa;
         this.tassiaPessoa = tassiaPessoa;
+        this.senhaPessoa = senhaPessoa;
+    }    
+
+    public String getSenhaPessoa() {
+        return senhaPessoa;
     }
 
+    public void setSenhaPessoa(String senhaPessoa) {
+        this.senhaPessoa = senhaPessoa;
+    }
+
+    
+    
+    
     public Integer getIdPessoa() {
         return idPessoa;
     }

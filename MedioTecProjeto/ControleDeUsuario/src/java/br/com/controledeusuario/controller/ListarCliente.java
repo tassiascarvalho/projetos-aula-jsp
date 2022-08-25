@@ -6,6 +6,7 @@
 package br.com.controledeusuario.controller;
 
 import br.com.controledeusuario.dao.CidadeDAOImpl;
+import br.com.controledeusuario.dao.ClienteDAOImpl;
 import br.com.controledeusuario.dao.EstadoDAOImpl;
 import br.com.controledeusuario.dao.GenericDAO;
 import java.io.IOException;
@@ -38,6 +39,9 @@ public class ListarCliente extends HttpServlet {
             
             GenericDAO daocidade = new CidadeDAOImpl();
             request.setAttribute("listadecidades", daocidade.listar());
+            
+            GenericDAO daocliente = new ClienteDAOImpl();
+            request.setAttribute("listadeclientes", daocliente.listar());
                         
             
             request.getRequestDispatcher("cliente/gerenciarcliente.jsp")

@@ -34,11 +34,11 @@ public class CarregarCidade extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idCidade = Integer.parseInt(request.getParameter("idcidadecarregar"));
+        int idcidade = Integer.parseInt(request.getParameter("idcidadecarregar"));
         
         try{
             GenericDAO dao = new CidadeDAOImpl();//Add Import
-            request.setAttribute("oCidade", dao.carregar(idCidade));
+            request.setAttribute("oCidade", dao.carregar(idcidade));
             request.getRequestDispatcher("ListarCidade").forward(request, response);
         }catch(Exception ex){
             System.out.println("Erro no Servlet CarregarCidade");

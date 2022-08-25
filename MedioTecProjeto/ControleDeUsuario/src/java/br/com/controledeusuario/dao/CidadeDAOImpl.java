@@ -67,6 +67,7 @@ public class CidadeDAOImpl implements GenericDAO {
         ResultSet rs = null;
         String sql = "SELECT idcidade, nomecidade, siglaestado, nomeestado"
                 + " from estado, cidade where cidade.idestado = estado.idestado ";
+      
         try {
             stmt = conn.prepareStatement(sql);
             rs = stmt.executeQuery();

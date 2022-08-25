@@ -31,7 +31,24 @@ public class CidadeAjax extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        //PrintWriter out = response.getWriter();
+
+        CidadeMODEL model = new CidadeMODEL();
+        CidadeDAO dao = new CidadeDAO();
+
+        List<CidadeMODEL> cidadeList;
         PrintWriter out = response.getWriter();
+
+        cidadeList = dao.ListarCidade(Integer.parseInt(request.getParameter("id_estado")));
+
+        StringBuilder sb = new StringBuilder("");
+
+        for (CidadeMODEL cd : cidadeList) {
+
+            sb.append(cd.getId_Cidade()).append("-").append(cd.getNome_Cidade()).append(":");
+
+        }
+        out.print(sb);
 
     }
 
@@ -62,24 +79,6 @@ public class CidadeAjax extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-
-        CidadeMODEL model = new CidadeMODEL();
-        CidadeDAO dao = new CidadeDAO();
-
-        List<CidadeMODEL> cidadeList;
-        PrintWriter out = response.getWriter();
-
-        cidadeList = dao.ListarCidade(Integer.parseInt(request.getParameter("id_estado")));
-
-        StringBuilder sb = new StringBuilder("");
-
-        for (CidadeMODEL cd : cidadeList) {
-
-            sb.append(cd.getId_Cidade()).append("-").append(cd.getNome_Cidade()).append(":");
-
-        }
-        out.print(sb);
-
     }
 
     /**

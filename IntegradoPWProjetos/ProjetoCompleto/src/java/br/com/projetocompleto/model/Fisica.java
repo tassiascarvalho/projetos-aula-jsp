@@ -23,12 +23,14 @@ public class Fisica extends Pessoa{
         this.apelidoFisica = apelidoFisica;
     }
 
-    public Fisica(Integer idFisica, String cpfFisica, String apelidoFisica, Integer idPessoa, String nomePessoa, String emailPessoa, String tassiaPessoa) {
-        super(idPessoa, nomePessoa, emailPessoa, tassiaPessoa);
+    public Fisica(Integer idFisica, String cpfFisica, String apelidoFisica, Integer idPessoa, String nomePessoa, String emailPessoa, String tassiaPessoa, String senhaPessoa) {
+        super(idPessoa, nomePessoa, emailPessoa, tassiaPessoa, senhaPessoa);
         this.idFisica = idFisica;
         this.cpfFisica = cpfFisica;
         this.apelidoFisica = apelidoFisica;
     }
+
+    
 
     public Integer getIdFisica() {
         return idFisica;

@@ -15,7 +15,10 @@
     </head>
     <body>
         <div class="row">
-            <div class="col-sm-2 bg-primary text-white"><jsp:include page="menu.jsp" /></div>            
+            <div class="col-sm-2 bg-primary text-white">
+                <jsp:include page="menu.jsp" />
+            </div>    
+            ${mensagem} - ${oAdministradorLogado.nome}
         </div>
         <br>
 </html>

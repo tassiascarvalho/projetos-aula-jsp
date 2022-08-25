@@ -42,6 +42,7 @@ public class SalvarEstado extends HttpServlet {
         objetoEstado.setNomeEstado(request.getParameter("nome"));
         objetoEstado.setSiglaEstado(request.getParameter("sigla"));
         String mensagem ="" ;
+        String tipomensagem="";
         //PROCESSAR | ARMAZENA
         try{
             GenericDAO dao = new EstadoDAOImpl();            
@@ -49,15 +50,19 @@ public class SalvarEstado extends HttpServlet {
             if(request.getParameter("id").equals("")){            
                 if(dao.cadastrar(objetoEstado)){
                    mensagem = objetoEstado.getSiglaEstado() + ", Cadastrado com Sucesso";
+                   tipomensagem="S";
                 }else{
                    mensagem = objetoEstado.getSiglaEstado() + ", Erro ao cadastrar Estado";        
+                   tipomensagem="E";
                 }
             }else{ 
                 objetoEstado.setIdEstado(Integer.parseInt(request.getParameter("id")));
                 if(dao.alterar(objetoEstado)){                   
                    mensagem = objetoEstado.getSiglaEstado() + ", Alterado com Sucesso";
+                   tipomensagem="S";
                 }else{
                    mensagem = objetoEstado.getSiglaEstado() + ", Erro ao alterar Estado";        
+                   tipomensagem="E";
                 }
             }   
         }catch(Exception ex){
@@ -66,6 +71,7 @@ public class SalvarEstado extends HttpServlet {
         }
         //SAÍDA
         request.setAttribute("mensagem", mensagem);
+        request.setAttribute("tipomensagem", tipomensagem);
         request.getRequestDispatcher("ListarEstado").forward(request, response);
         
     }

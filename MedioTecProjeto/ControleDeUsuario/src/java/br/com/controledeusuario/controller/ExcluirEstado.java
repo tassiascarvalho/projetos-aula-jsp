@@ -39,6 +39,8 @@ public class ExcluirEstado extends HttpServlet {
         try{
             GenericDAO dao = new EstadoDAOImpl();//Add Importações
             dao.excluir(idEstado);
+            request.setAttribute("mensagem", "Excluido com Sucesso!");
+            request.setAttribute("tipomensagem", "S");            
             request.getRequestDispatcher("ListarEstado").forward(request, response);
         }catch(Exception ex){
             System.out.println("Erro no Servlet ExcluirEstado: " + ex.getMessage());
