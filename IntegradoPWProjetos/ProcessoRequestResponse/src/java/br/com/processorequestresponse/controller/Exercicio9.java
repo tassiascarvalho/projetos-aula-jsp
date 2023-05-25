@@ -1,6 +1,9 @@
+package br.com.processorequestresponse.controller;
+
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
 import java.io.IOException;
@@ -13,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Tassia Carvalho
+ * @author Tassia
  */
-@WebServlet(urlPatterns = {"/CadastrarAluno"})
-public class CadastrarAluno extends HttpServlet {
+@WebServlet(urlPatterns = {"/Exercicio9"})
+public class Exercicio9 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,32 +32,28 @@ public class CadastrarAluno extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nomealuno;
-        Integer idadealuno;
-        //Receber valores da JSP
-        nomealuno = request.getParameter("nomealuno");
-        //Converter para inteiro (Integer.parseInt)
-        idadealuno = Integer.parseInt(request.getParameter("idadealuno"));
-
-        String mensagem;
-
-        if (idadealuno >= 18) {
-            mensagem = "O aluno é maior de idade";
-        } else {
-            mensagem = "O aluno é menor de idade";
-        }
-
+        
+        Double vlhora = Double.parseDouble(request.getParameter("vlhora"));
+        Double hrtrabalhadas = Double.parseDouble(request.getParameter("hrtrabalhadas"));
+        Double pinss = Double.parseDouble(request.getParameter("pinss"));
+        Double salariobruto, desconto, salarioliquido;
+        
+        salariobruto = vlhora * hrtrabalhadas;
+        desconto = salariobruto * (pinss/100);
+        salarioliquido = salariobruto - desconto;
+        
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Cadastrar Aluno</title>");
+            out.println("<title>Servlet Exercicio9</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>O aluno " + nomealuno + "</h1>");
-            out.println("<h1> " + mensagem + " </h1>");
+            out.println("<h1>Salario Bruto R$" + salariobruto + "</h1>");
+            out.println("<h1>Desconto INSS R$" + desconto + "</h1>");
+            out.println("<h1>Salario Liquido R$ " + salarioliquido + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

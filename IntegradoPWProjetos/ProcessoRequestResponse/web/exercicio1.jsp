@@ -14,8 +14,8 @@
     <body>
         <h1> Exercício 1</h1>
         <p>
-                1. Escreva um algoritmo para ler as dimensões de um retângulo (base e altura),
-                calcular e escrever a área do retângulo (Formula: A = (b* h))
+            1. Escreva um algoritmo para ler as dimensões de um retângulo (base e altura),
+            calcular e escrever a área do retângulo (Formula: A = (b* h))
         </p>
         <!--form proporciona interação
             action = para onde os dados serão enviados

@@ -1,6 +1,9 @@
+package br.com.processorequestresponse.controller;
+
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
 import java.io.IOException;
@@ -13,10 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Tassia Carvalho
+ * @author Tassia
  */
-@WebServlet(urlPatterns = {"/CadastrarAluno"})
-public class CadastrarAluno extends HttpServlet {
+@WebServlet(urlPatterns = {"/Exercicio2IF"})
+public class Exercicio2IF extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,32 +32,50 @@ public class CadastrarAluno extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nomealuno;
-        Integer idadealuno;
-        //Receber valores da JSP
-        nomealuno = request.getParameter("nomealuno");
-        //Converter para inteiro (Integer.parseInt)
-        idadealuno = Integer.parseInt(request.getParameter("idadealuno"));
-
-        String mensagem;
-
-        if (idadealuno >= 18) {
-            mensagem = "O aluno é maior de idade";
-        } else {
-            mensagem = "O aluno é menor de idade";
+        /*2.	Desenvolva um software para calcular o reajuste salarial. 
+        Por padrão, o aumento será de 15%. Entretanto, 
+        deve ser aplicada uma regra diferente para cada faixa salarial. Regras:
+            para 1.500,00 >= salarioAtual < 1.750,00: aumento igual a 12%
+            para 1.750,00 >= salarioAtual < 2.000,00: aumento igual a 10%
+            para 2.000,00 >= salarioAtual < 3.000,00: aumento igual a 7%
+            para acima de 3.000,00: aumento igual a 5%.
+        
+        Sintaxe:
+            if(condição1 && condição2){
+                Comandos ser verdadeiras as condições
+            }else if(condições){
+                Comandos
+            }else{
+                Comandos
+            }    
+        */        
+        Double salarioatual = Double.parseDouble(request.getParameter("salarioatual"));
+        Double reajuste=0.0;
+        if(salarioatual>=1500 && salarioatual<1750){
+            reajuste = salarioatual * 0.12;            
+        }else if(salarioatual>=1750 && salarioatual<2000){
+            reajuste = salarioatual * 0.10;
+        }else if(salarioatual>=2000 && salarioatual <3000){
+            reajuste = salarioatual * 0.07;
+        }else if(salarioatual>=3000){
+            reajuste = salarioatual * 0.05;            
+        }else{
+            reajuste = salarioatual * 0.15;
         }
-
+                  
+        
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Cadastrar Aluno</title>");
+            out.println("<title>Servlet Exercicio2IF</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>O aluno " + nomealuno + "</h1>");
-            out.println("<h1> " + mensagem + " </h1>");
+            out.println("<h1>Salario " + salarioatual + "</h1>");
+            out.println("<h1>Reajuste " + reajuste + "</h1>");
+            out.println("<h1>Novo Salario " + (salarioatual+reajuste) + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

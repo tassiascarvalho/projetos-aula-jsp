@@ -58,26 +58,3 @@ REFERENCES produto(idproduto),
 CONSTRAINT fkitenssaida
 FOREIGN KEY (idsaida)
 REFERENCES saida(idsaida));
-
-insert into itenssaida(idproduto, valorunitem, idproduto)
-values (?, ?, ?);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

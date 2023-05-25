@@ -5,8 +5,7 @@
  */
 package br.com.projetocompleto.util;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.sql.Connection;
 
 /**
  *
@@ -17,10 +16,13 @@ public class Teste {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Date timeStamp = Calendar.getInstance().getTime();
-
-        System.out.println(timeStamp);
+    public static void main(String[] args) throws Exception {
+       
+        Connection conn = ConnectionFactory.conexao();
+        if (conn != null)
+             System.out.println("Conectado");
+        else
+            System.out.println("Não Conectou");
     }
 
 }
