@@ -1,10 +1,10 @@
 # projetos-aula-jsp
  
-##Portfólio de Projetos JSP e Servlet
+## Portfólio de Projetos JSP e Servlet
 
 Este repositório contém alguns projetos iniciais de desenvolvimento web utilizando JSP (Java Server Pages) e Servlets . Esses projetos foram criados como parte do aprendizado de conceitos fundamentais de programação web, sendo aplicados no curso técnico. Alguns projetos estão finalizados, enquanto outros não.
 
-###Objetivo
+### Objetivo
 O objetivo destes projetos é apresentar e praticar conceitos básicos de desenvolvimento web utilizando Java, abordando os seguintes tópicos:
 
 - Solicitação e Resposta de Processo : Como gerenciar requisições e respostas entre o cliente e o servidor.
